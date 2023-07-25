@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Basketball</title>
+</head>
+
+<body>
+    <div class="nav">
+        <h1>Bball title</h1>
+        <div class="navright">
+            <a href="/view">All Games</a>
+            <a href="/new">+ Create Game</a>
+            <form action="/logout">
+                <button>Logout</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="bottom">
+        <h1>Edit Game</h1>
+        <form action="/editgames/{{games.id}}" method="post">
+            <!-- I can't remember how to get this form action to point to the specific games that we clicked on? -->
+
+            <div class="row">
+                <div>
+                    <div class="form-group">
+                        <label for="hometeam" class="form-label">Home Team:</label>
+                        <input name="hometeam" type="text" id="hometeam" class="form-control">{{games.hometeam}}</input>
+                    </div>
+                    <div class="form-group">
+                        <label for="homescore" class="form-label">Score:</label>
+                        <input name="homescore" type="number" id="homescore"
+                            class="form-control">{{games.homescore}}</input>
+                    </div>
+                    <div class="form-group">
+                        <label for="awayteam" class="form-label">Away Team:</label>
+                        <input name="awayteam" type="text" id="awayteam" class="form-control">{{games.awayteam}}</input>
+                    </div>
+                    <div class="form-group">
+                        <label for="awayscore" class="form-label">Score:</label>
+                        <input name="awayscore" type="number" id="awayscore"
+                            class="form-control">{{games.awayscore}}</input>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-success">Update</button>
+        </form>
+    </div>
+</body>
+
+</html>

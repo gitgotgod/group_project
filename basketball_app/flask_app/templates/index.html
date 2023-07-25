@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Basketball</title>
+</head>
+
+<body>
+    <div class="nav">
+        <h1>Basketball app</h1>
+        <div>
+            <form action="/signupform">
+                <button>Sign Up</button>
+            </form>
+            <form action="/loginform">
+                <button>Log in</button>
+            </form>
+        </div>
+    </div>
+    <div>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <p class="error">{{message}}</p>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <h2>Love Basketball?</h2>
+        <h3>Sign up now!</h3>
+    </div>
+
+</body>
+
+</html>
