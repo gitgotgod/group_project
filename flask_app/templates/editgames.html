@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Basketball</title>
+</head>
+
+<body>
+    <div class="nav">
+        <h1>Bball title</h1>
+        <div class="navright">
+            <form action="/dashboard">
+                <button class="log_reg">Home</button>
+            </form>
+            <form action="/new">
+                <button class="log_reg" id="create">+ Create Game</button>
+            </form>
+            <form action="/logout">
+                <button class="log_reg">Logout</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="form">
+        <h1>Edit Game</h1>
+        <form action="/editgame" method="post">
+
+            <input type="hidden" value="{{game.id}}" name="id">
+           
+
+            <label for="hometeam" class="input">Home Team:</label>
+            <input name="hometeam" type="text" id="hometeam" class="form-control" value="{{game.hometeam}}"></input>
+
+            <label for="homescore" class="input">Score:</label>
+            <input name="homescore" type="number" id="homescore" class="form-control" value="{{game.homescore}}"></input>
+
+            <label for="awayteam" class="input">Away Team:</label>
+            <input name="awayteam" type="text" id="awayteam" class="form-control" value="{{game.awayteam}}"></input>
+
+
+            <label for="awayscore" class="input">Score:</label>
+            <input name="awayscore" type="number" id="awayscore" class="form-control" value="{{game.awayscore}}"></input>
+            <div class="formbottom">
+                <button type="submit" class="log_reg">Update</button>
+                <a href="/delete/{{game.id}}" id="delete">Delete</a>                
+            </div>
+
+        </form>
+    </div>
+</body>
+
+</html>

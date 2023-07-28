@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Basketball</title>
+</head>
+
+<body>
+    <div class="nav">
+        <h1>Basketball App</h1>
+        <div class="navright">
+            <form action="/dashboard">
+                <button class="log_reg">Home</button>
+            </form>
+            <form action="/logout">
+                <button class="log_reg">Logout</button>
+            </form>
+        </div>
+    </div>
+    <div>
+        <form action="/savegame" method="POST" class="form">
+            <p class="input">Home Team:</p>
+            <input type="text" name="hometeam">
+            <p class="input">Home Score:</p>
+            <input type="number" name="homescore">
+            <p class="input">Away Team:</p>
+            <input type="text" name="awayteam">
+            <p class="input">Away Score:</p>
+            <input type="number" name="awayscore">
+            <div class="formbottom">
+                <button type="submit" class="log_reg">Add</button>                
+            </div>
+
+        </form>
+    </div>
+</body>
